@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: streamly-telegram-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: BOT_USERNAME
+        value: Test1hostbot
